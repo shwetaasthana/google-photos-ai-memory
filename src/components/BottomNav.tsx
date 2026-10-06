@@ -17,7 +17,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           onClick={() => onSelectTab('photos')}
         >
           <div className="gp-pill-icon-wrapper">
-            <ImageIcon size={20} />
+            <ImageIcon size={18} />
           </div>
           <span className="gp-pill-label">Photos</span>
         </button>
@@ -28,7 +28,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           onClick={() => onSelectTab('collections')}
         >
           <div className="gp-pill-icon-wrapper">
-            <Layers size={20} />
+            <Layers size={18} />
           </div>
           <span className="gp-pill-label">Collections</span>
         </button>
@@ -39,7 +39,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           onClick={() => onSelectTab('create')}
         >
           <div className="gp-pill-icon-wrapper">
-            <PlusCircle size={20} />
+            <PlusCircle size={18} />
           </div>
           <span className="gp-pill-label">Create</span>
         </button>
@@ -50,19 +50,19 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           onClick={() => onSelectTab('search')}
           title="Search & AI Memory Discovery"
         >
-          <Search size={20} />
+          <Search size={18} />
         </button>
       </div>
 
       <style>{`
         .gp-bottom-nav {
           position: absolute;
-          bottom: 24px;
+          bottom: 20px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;
-          width: calc(100% - 28px);
-          max-width: 390px;
+          width: auto;
+          max-width: 95%;
           pointer-events: none;
         }
 
@@ -72,23 +72,24 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 30px;
-          padding: 6px 8px 6px 12px;
+          border-radius: 32px;
+          padding: 4px 6px;
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
-          gap: 4px;
+          justify-content: center;
+          gap: 3px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.06);
+          box-sizing: border-box;
         }
 
         .gp-nav-pill-btn {
           display: flex;
           align-items: center;
-          gap: 5px;
-          padding: 7px 11px;
-          border-radius: var(--gp-radius-pill);
+          gap: 4px;
+          padding: 6px 9px;
+          border-radius: 20px;
           color: #444746;
-          font-size: 13px;
+          font-size: 12.5px;
           font-weight: 500;
           transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
           white-space: nowrap;
@@ -116,12 +117,12 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
         }
 
         .gp-nav-search-circle-btn {
-          width: 44px;
-          height: 44px;
-          min-width: 44px;
-          min-height: 44px;
-          max-width: 44px;
-          max-height: 44px;
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          min-height: 40px;
+          max-width: 40px;
+          max-height: 40px;
           flex-shrink: 0;
           aspect-ratio: 1 / 1;
           border-radius: 50%;
@@ -131,34 +132,28 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           align-items: center;
           justify-content: center;
           transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
-          box-shadow: 0 3px 10px rgba(0, 99, 155, 0.35);
+          box-shadow: 0 2px 8px rgba(0, 99, 155, 0.35);
           padding: 0;
           border: none;
           cursor: pointer;
-          margin-left: 4px;
+          margin-left: 2px;
         }
 
         .gp-nav-search-circle-btn:hover {
           background: #004D7A;
           transform: scale(1.05);
-          box-shadow: 0 4px 14px rgba(0, 99, 155, 0.45);
         }
 
         .gp-nav-search-circle-btn.active {
           background: #00639B;
           color: #FFFFFF;
-          box-shadow: 0 0 0 3px #C2E7FF, 0 4px 14px rgba(0, 99, 155, 0.4);
-          transform: scale(1.05);
+          box-shadow: 0 0 0 2px #C2E7FF, 0 3px 10px rgba(0, 99, 155, 0.4);
         }
 
-        @media (max-width: 380px) {
-          .gp-bottom-nav {
-            width: calc(100% - 20px);
-            bottom: 20px;
-          }
+        @media (max-width: 360px) {
           .gp-nav-pill-btn {
-            padding: 6px 8px;
-            font-size: 12px;
+            padding: 5px 7px;
+            font-size: 11.5px;
             gap: 3px;
           }
         }
