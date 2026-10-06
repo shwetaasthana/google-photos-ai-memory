@@ -56,37 +56,41 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
 
       <style>{`
         .gp-bottom-nav {
-          position: fixed;
+          position: absolute;
           bottom: 16px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;
-          width: calc(100% - 32px);
-          max-width: 440px;
+          width: calc(100% - 24px);
+          max-width: 388px;
         }
 
         .gp-bottom-nav-container {
-          background: #F1F3F4;
-          backdrop-filter: blur(12px);
+          background: rgba(241, 243, 244, 0.94);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: var(--gp-radius-pill);
-          padding: 6px 10px;
+          padding: 5px 8px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+          gap: 4px;
+          box-shadow: 0 4px 22px rgba(0, 0, 0, 0.16);
         }
 
         .gp-nav-pill-btn {
           display: flex;
           align-items: center;
-          gap: 6px;
-          padding: 8px 14px;
+          gap: 5px;
+          padding: 7px 10px;
           border-radius: var(--gp-radius-pill);
           color: #444746;
-          font-size: 13.5px;
+          font-size: 13px;
           font-weight: 500;
           transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+          white-space: nowrap;
+          flex-shrink: 1;
         }
 
         .gp-nav-pill-btn:hover {
@@ -103,11 +107,18 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-shrink: 0;
         }
 
         .gp-nav-search-circle-btn {
           width: 44px;
           height: 44px;
+          min-width: 44px;
+          min-height: 44px;
+          max-width: 44px;
+          max-height: 44px;
+          flex-shrink: 0;
+          aspect-ratio: 1 / 1;
           border-radius: 50%;
           background: #E3E3E3;
           color: #1F1F1F;
@@ -115,7 +126,10 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           align-items: center;
           justify-content: center;
           transition: all 0.2s ease;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+          padding: 0;
+          border: none;
+          cursor: pointer;
         }
 
         .gp-nav-search-circle-btn:hover {
@@ -126,7 +140,17 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
         .gp-nav-search-circle-btn.active {
           background: #00639B;
           color: #FFFFFF;
-          box-shadow: 0 2px 8px rgba(0, 99, 155, 0.3);
+          box-shadow: 0 2px 8px rgba(0, 99, 155, 0.35);
+        }
+
+        @media (max-width: 360px) {
+          .gp-nav-pill-btn {
+            padding: 6px 8px;
+            font-size: 12px;
+          }
+          .gp-pill-label {
+            display: none;
+          }
         }
       `}</style>
     </nav>
