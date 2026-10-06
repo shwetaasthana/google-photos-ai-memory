@@ -261,10 +261,11 @@ export const App: React.FC = () => {
     setToastMessage(`Generated new ${toolName}! ✨ Saved to Creation album.`);
   };
 
-  // Requirement 3: Reset Search Engine
+  // Requirement 3: Reset Search Engine & Navigate to Home (Photos Tab)
   const handleResetSearch = () => {
     setQuery('');
     setSubScreen(null);
+    setCurrentTab('photos');
     setClues([]);
     setSelectedPerson(null);
     setActiveCluster(null);
