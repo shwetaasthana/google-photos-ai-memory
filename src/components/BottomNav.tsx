@@ -57,40 +57,45 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
       <style>{`
         .gp-bottom-nav {
           position: absolute;
-          bottom: 16px;
+          bottom: 24px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;
-          width: calc(100% - 24px);
-          max-width: 388px;
+          width: calc(100% - 28px);
+          max-width: 390px;
+          pointer-events: none;
         }
 
         .gp-bottom-nav-container {
-          background: rgba(241, 243, 244, 0.94);
+          pointer-events: auto;
+          background: rgba(245, 247, 250, 0.96);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: var(--gp-radius-pill);
-          padding: 5px 8px;
+          border-radius: 30px;
+          padding: 6px 8px 6px 12px;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.06);
           gap: 4px;
-          box-shadow: 0 4px 22px rgba(0, 0, 0, 0.16);
         }
 
         .gp-nav-pill-btn {
           display: flex;
           align-items: center;
           gap: 5px;
-          padding: 7px 10px;
+          padding: 7px 11px;
           border-radius: var(--gp-radius-pill);
           color: #444746;
           font-size: 13px;
           font-weight: 500;
           transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
           white-space: nowrap;
-          flex-shrink: 1;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          flex-shrink: 0;
         }
 
         .gp-nav-pill-btn:hover {
@@ -120,36 +125,41 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onSelectTab })
           flex-shrink: 0;
           aspect-ratio: 1 / 1;
           border-radius: 50%;
-          background: #E3E3E3;
-          color: #1F1F1F;
+          background: #00639B;
+          color: #FFFFFF;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.2s ease;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+          transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+          box-shadow: 0 3px 10px rgba(0, 99, 155, 0.35);
           padding: 0;
           border: none;
           cursor: pointer;
+          margin-left: 4px;
         }
 
         .gp-nav-search-circle-btn:hover {
-          background: #D6D6D6;
+          background: #004D7A;
           transform: scale(1.05);
+          box-shadow: 0 4px 14px rgba(0, 99, 155, 0.45);
         }
 
         .gp-nav-search-circle-btn.active {
           background: #00639B;
           color: #FFFFFF;
-          box-shadow: 0 2px 8px rgba(0, 99, 155, 0.35);
+          box-shadow: 0 0 0 3px #C2E7FF, 0 4px 14px rgba(0, 99, 155, 0.4);
+          transform: scale(1.05);
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 380px) {
+          .gp-bottom-nav {
+            width: calc(100% - 20px);
+            bottom: 20px;
+          }
           .gp-nav-pill-btn {
             padding: 6px 8px;
             font-size: 12px;
-          }
-          .gp-pill-label {
-            display: none;
+            gap: 3px;
           }
         }
       `}</style>
